@@ -44,24 +44,31 @@ h1, h2, h3, h4 {
 }
 
 :root {
+    --space-1: 1rem;
     --main-right-width: 300px;
 }
 
 .logo, .search, .top-right-corner, li {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-1);
 }
 
 li {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-1);
 }
 
 .your-projects, .card, .announcements, .buttons, .logo, .search, .top-right-corner {
-    padding: 1rem;
+    padding: var(--space-1);
 }
 
 .sidebar, .header, .card, .announcement-container, .trending-container {
     border: 1px solid black;
+}
+
+.pfp {
+    height: 4rem;
+    width: auto;
+    border-radius: 50%;
 }
 
 h1 { 
@@ -80,7 +87,7 @@ h3 {
 
 h4 { 
     font-size: 1.25rem; line-height: 1.25rem;
-    margin-bottom: 1rem; 
+    margin-bottom: var(--space-1); 
 }
 
 .header {
@@ -105,50 +112,12 @@ h4 {
     grid-template-columns: 1fr var(--main-right-width);
 }
 
-.your-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-template-rows: 40px;
-    grid-auto-rows: 300px;
-    gap: 1rem;
-    padding-right: 0;
-}
-
-.your-projects h3 {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-}
-
 .main-right {
     grid-column: 2 / 3;
 }
 
-.announcements {
-    display: grid;
-    grid-template-rows: 40px 1fr;
-    gap: 1rem;
-}
-
-.trending {
-    display: grid;
-    grid-template-rows: 40px 1fr;
-    gap: 1rem;
-    padding: 0 1rem 1rem 1rem;
-}
-
-.nav ul {
-    list-style-type: none;
-    padding-left: 1rem;
-}
-
-.menu ul {
-    list-style-type: none;
-    padding-left: 1rem;
-}
-
-.logo img {
-    height: 2rem;
-    width: auto;
+.search {
+    align-items: center;
 }
 
 input {
@@ -159,12 +128,22 @@ input {
     border-radius: calc(0.5 * var(--input-height));
 }
 
+.top-right-corner {
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 250px;
+}
+
+.top-right-corner p {
+    white-space: nowrap;
+}
+
 .user-greeting {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
-    padding: 1rem;
-    column-gap: 1rem;
+    padding: var(--space-1);
+    column-gap: var(--space-1);
 }
 
 .user-greeting img {
@@ -189,30 +168,99 @@ input {
     align-self: start;
 }
 
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-1);
+    place-items: center;
+}
+
+button {
+    --button-height: 3rem;
+    
+    height: var(--button-height);
+    width: calc(2.5 * var(--button-height));
+    border-radius: calc(0.5 * var(--button-height));
+}
+
+.logo img {
+    height: 2rem;
+    width: auto;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding-left: var(--space-1);
+}
+
+.menu ul {
+    list-style-type: none;
+    padding-left: var(--space-1);
+}
+
+.your-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: 40px;
+    grid-auto-rows: 300px;
+    gap: var(--space-1);
+    padding-right: 0;
+}
+
+.your-projects h3 {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+}
+
+.card {
+    border-radius: 1rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.card-icons {
+    display: flex;
+    justify-content: end;
+    gap: var(--space-1);
+}
+
+.announcements {
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    gap: var(--space-1);
+}
+
+.announcement-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--space-1);
+    border-radius: 1rem;
+}
+
 .announcement {
     overflow: hidden;
     border-bottom: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 0 1rem 0;
+    padding: var(--space-1) 0;
 }
 
 .announcement:last-child {
     border-bottom: none;
 }
 
-.announcement-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem 0 1rem;
-    border-radius: 1rem;
+.trending {
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    gap: var(--space-1);
+    padding: 0 var(--space-1) var(--space-1);
 }
 
 .trending-container {
     display: flex;
     flex-direction: column;
-    padding: 1rem 1rem 0 1rem;
+    padding: var(--space-1) var(--space-1) 0 var(--space-1);
     border-radius: 1rem;
 }
 
@@ -220,8 +268,8 @@ input {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr 1fr;
-    column-gap: 1rem;
-    padding-bottom: 1rem;
+    column-gap: var(--space-1);
+    padding-bottom: var(--space-1);
 }
 
 .user img {
@@ -243,51 +291,4 @@ input {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.search {
-    align-items: center;
-}
-
-.top-right-corner {
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 250px;
-}
-
-.pfp {
-    height: 4rem;
-    width: auto;
-    border-radius: 50%;
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    place-items: center;
-}
-
-button {
-    --button-height: 3rem;
-    
-    height: var(--button-height);
-    width: calc(2.5 * var(--button-height));
-    border-radius: calc(0.5 * var(--button-height));
-}
-
-.top-right-corner p {
-    white-space: nowrap;
-}
-
-.card {
-    border-radius: 1rem;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-}
-
-.card-icons {
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
 }
