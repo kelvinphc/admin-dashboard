@@ -10,7 +10,7 @@ body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     display: grid;
-    grid-template-columns: 300px 1fr var(--main-right-width);
+    grid-template-columns: 256px 1fr var(--main-right-width);
     grid-template-rows: auto 1fr;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     height: 100vh;
@@ -19,7 +19,7 @@ body {
 img, svg {
     display: block;
     max-width: 100%;
-    height: 1.5rem;
+    height: 30px;
     width: auto;
 }
 
@@ -44,7 +44,8 @@ h1, h2, h3, h4 {
 }
 
 :root {
-    --space-1: 1rem;
+    --space-1: 16px;
+    --radius: 8px;
     --main-right-width: 300px;
 }
 
@@ -54,39 +55,61 @@ h1, h2, h3, h4 {
 }
 
 li {
-    margin-bottom: var(--space-1);
+    font-size: 24px;
+    align-items: center;
+    height: 100%;
+    padding-left: var(--space-1);
+    transition: background-color 0.2s, color 0.2s;
+    color: white;
+}
+
+li svg {
+    fill: currentColor;
+    transition: fill 0.2s;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #315b7d;
 }
 
 .your-projects, .card, .announcements, .buttons, .logo, .search, .top-right-corner {
     padding: var(--space-1);
 }
 
-.sidebar, .header, .card, .announcement-container, .trending-container {
-    border: 1px solid black;
+.header, .card, .announcement-container, .trending-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sidebar, button {
+    background-color: steelblue;
+    color: white;
+    border: none;
+    font-weight: bold;
 }
 
 .pfp {
-    height: 4rem;
+    height: 64px;
     width: auto;
     border-radius: 50%;
 }
 
 h1 { 
-    font-size: 2rem; line-height: 2rem; 
+    font-size: 32px;
 }
 
 h2 { 
-    font-size: 1.75rem; line-height: 1.75rem; 
+    font-size: 30px; line-height: 1; 
 }
 
 h3 { 
-    font-size: 1.5rem; line-height: 1.5rem;
+    font-size: 24px;
     display: flex;
     align-items: flex-end; 
 }
 
 h4 { 
-    font-size: 1.25rem; line-height: 1.25rem;
+    font-size: 20px;
     margin-bottom: var(--space-1); 
 }
 
@@ -96,13 +119,15 @@ h4 {
     display: grid;
     grid-template-columns: 1fr min(40%, 500px);
     grid-template-rows: auto auto;
+    z-index: 1;
 }
 
 .sidebar {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     display: grid;
-    grid-template-rows: 100px 300px 300px;
+    grid-template-rows: 96px 288px 144px;
+    row-gap: 64px;
 }
 
 .main {
@@ -110,6 +135,7 @@ h4 {
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 1fr var(--main-right-width);
+    background-color: aliceblue;
 }
 
 .main-right {
@@ -121,11 +147,12 @@ h4 {
 }
 
 input {
-    --input-height: 3rem;
+    --input-height: 36px;
     
     height: var(--input-height);
     width: min(1000px, 100%);
     border-radius: calc(0.5 * var(--input-height));
+    padding: 8px;
 }
 
 .top-right-corner {
@@ -149,7 +176,7 @@ input {
 .user-greeting img {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    height: 6rem;
+    height: 96px;
     width: auto;
     border-radius: 50%;
     max-width: none;
@@ -176,26 +203,30 @@ input {
 }
 
 button {
-    --button-height: 3rem;
+    --button-height: 48px;
     
     height: var(--button-height);
     width: calc(2.5 * var(--button-height));
     border-radius: calc(0.5 * var(--button-height));
 }
 
-.logo img {
-    height: 2rem;
+.logo {
+    align-items: center;
+    height: fit-content;
+}
+
+.logo svg {
+    height: 64px;
     width: auto;
+    fill: white;
 }
 
-.nav ul {
+.nav ul, .menu ul {
     list-style-type: none;
-    padding-left: var(--space-1);
-}
-
-.menu ul {
-    list-style-type: none;
-    padding-left: var(--space-1);
+    display: grid;
+    grid-auto-rows: 48px;
+    align-items: center;
+    padding-left: 0;
 }
 
 .your-projects {
@@ -213,9 +244,11 @@ button {
 }
 
 .card {
-    border-radius: 1rem;
+    border-radius: var(--radius);
     display: grid;
     grid-template-rows: auto 1fr auto;
+    background-color: white;
+    border-left: 8px solid goldenrod;
 }
 
 .card-icons {
@@ -234,7 +267,8 @@ button {
     display: flex;
     flex-direction: column;
     padding: 0 var(--space-1);
-    border-radius: 1rem;
+    border-radius: var(--radius);
+    background-color: white;
 }
 
 .announcement {
@@ -261,7 +295,8 @@ button {
     display: flex;
     flex-direction: column;
     padding: var(--space-1) var(--space-1) 0 var(--space-1);
-    border-radius: 1rem;
+    border-radius: var(--radius);
+    background-color: white;
 }
 
 .user {
