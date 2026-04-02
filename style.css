@@ -54,23 +54,14 @@ h1, h2, h3, h4 {
     gap: var(--space-1);
 }
 
-li {
-    font-size: 24px;
-    align-items: center;
-    height: 100%;
-    padding-left: var(--space-1);
-    transition: background-color 0.2s, color 0.2s;
-    color: white;
+label, .top-right-corner svg, .top-right-corner p {
+    transition: color 0.2s, fill 0.2s;
 }
 
-li svg {
-    fill: currentColor;
-    transition: fill 0.2s;
-}
-
-li:hover {
+label:hover, .top-right-corner svg:hover, .top-right-corner img:hover, .top-right-corner p:hover {
     cursor: pointer;
-    background-color: #315b7d;
+    color: #315b7d;
+    fill: #315b7d;
 }
 
 .your-projects, .card, .announcements, .buttons, .logo, .search, .top-right-corner {
@@ -135,7 +126,7 @@ h4 {
     grid-row: 2 / 3;
     display: grid;
     grid-template-columns: 1fr var(--main-right-width);
-    background-color: aliceblue;
+    background-color: #dae6f0;
 }
 
 .main-right {
@@ -153,6 +144,12 @@ input {
     width: min(1000px, 100%);
     border-radius: calc(0.5 * var(--input-height));
     padding: 8px;
+    border: none;
+    background-color: #dae6f0;
+}
+
+input:focus {
+    outline: 4px solid #315b7d;
 }
 
 .top-right-corner {
@@ -208,6 +205,12 @@ button {
     height: var(--button-height);
     width: calc(2.5 * var(--button-height));
     border-radius: calc(0.5 * var(--button-height));
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #315b7d;
 }
 
 .logo {
@@ -227,6 +230,25 @@ button {
     grid-auto-rows: 48px;
     align-items: center;
     padding-left: 0;
+}
+
+li {
+    font-size: 20px;
+    align-items: center;
+    height: 100%;
+    padding-left: var(--space-1);
+    transition: background-color 0.2s, color 0.2s;
+    color: white;
+}
+
+li svg {
+    fill: currentColor;
+    transition: fill 0.2s;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #315b7d;
 }
 
 .your-projects {
