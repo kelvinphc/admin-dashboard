@@ -19,7 +19,7 @@ body {
 img, svg {
     display: block;
     max-width: 100%;
-    height: 30px;
+    height: 24px;
     width: auto;
 }
 
@@ -44,28 +44,35 @@ h1, h2, h3, h4 {
 }
 
 :root {
-    --space-1: 16px;
+    --space-sm: 16px;
+    --space-lg: 24px;
     --radius: 8px;
-    --main-right-width: 300px;
+    --main-right-width: 384px;
 }
 
-.logo, .search, .top-right-corner, li {
+.logo, .search, li {
     display: flex;
-    gap: var(--space-1);
+    gap: var(--space-sm);
 }
 
-label, .top-right-corner svg, .top-right-corner p {
+label, .top-right-corner svg, .top-right-corner p, .announcements h3, .announcement, .trending h3, .user {
     transition: color 0.2s, fill 0.2s;
 }
 
-label:hover, .top-right-corner svg:hover, .top-right-corner img:hover, .top-right-corner p:hover {
+label:hover, .top-right-corner svg:hover, .top-right-corner img:hover, .top-right-corner p:hover, 
+.announcements h3:hover, .announcement:hover, .trending h3:hover, .user:hover {
     cursor: pointer;
-    color: #315b7d;
-    fill: #315b7d;
+    color: #23415a;
+    fill: #23415a;
 }
 
-.your-projects, .card, .announcements, .buttons, .logo, .search, .top-right-corner {
-    padding: var(--space-1);
+button:hover, li:hover {
+    cursor: pointer;
+    background-color: #315b7d;
+}
+
+.your-projects, .card, .announcements, .logo, .search, .top-right-corner {
+    padding: var(--space-lg);
 }
 
 .header, .card, .announcement-container, .trending-container {
@@ -86,22 +93,23 @@ label:hover, .top-right-corner svg:hover, .top-right-corner img:hover, .top-righ
 }
 
 h1 { 
-    font-size: 32px;
+    font-size: 30px;
 }
 
 h2 { 
-    font-size: 30px; line-height: 1; 
+    font-size: 24px; line-height: 1; 
 }
 
 h3 { 
-    font-size: 24px;
+    font-size: 20px;
     display: flex;
-    align-items: flex-end; 
+    align-items: flex-end;
+    margin-bottom: -8px;
 }
 
 h4 { 
-    font-size: 20px;
-    margin-bottom: var(--space-1); 
+    font-size: 18px;
+    margin-bottom: 8px; 
 }
 
 .header {
@@ -156,6 +164,8 @@ input:focus {
     align-items: center;
     justify-content: flex-end;
     min-width: 250px;
+    display: flex;
+    gap: var(--space-lg);
 }
 
 .top-right-corner p {
@@ -166,8 +176,8 @@ input:focus {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto;
-    padding: var(--space-1);
-    column-gap: var(--space-1);
+    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+    column-gap: var(--space-sm);
 }
 
 .user-greeting img {
@@ -195,8 +205,9 @@ input:focus {
 .buttons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--space-1);
+    gap: var(--space-lg);
     place-items: center;
+    padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
 }
 
 button {
@@ -208,19 +219,13 @@ button {
     transition: background-color 0.2s;
 }
 
-button:hover {
-    cursor: pointer;
-    background-color: #315b7d;
-}
-
 .logo {
     align-items: center;
     height: fit-content;
 }
 
 .logo svg {
-    height: 64px;
-    width: auto;
+    height: 48px;
     fill: white;
 }
 
@@ -233,10 +238,10 @@ button:hover {
 }
 
 li {
-    font-size: 20px;
+    font-size: 18px;
     align-items: center;
     height: 100%;
-    padding-left: var(--space-1);
+    padding-left: var(--space-lg);
     transition: background-color 0.2s, color 0.2s;
     color: white;
 }
@@ -246,17 +251,12 @@ li svg {
     transition: fill 0.2s;
 }
 
-li:hover {
-    cursor: pointer;
-    background-color: #315b7d;
-}
-
 .your-projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
     grid-template-rows: 40px;
-    grid-auto-rows: 300px;
-    gap: var(--space-1);
+    grid-auto-rows: 256px;
+    gap: var(--space-sm);
     padding-right: 0;
 }
 
@@ -276,19 +276,19 @@ li:hover {
 .card-icons {
     display: flex;
     justify-content: end;
-    gap: var(--space-1);
+    gap: var(--space-lg);
 }
 
 .announcements {
     display: grid;
     grid-template-rows: 40px 1fr;
-    gap: var(--space-1);
+    gap: var(--space-sm);
 }
 
 .announcement-container {
     display: flex;
     flex-direction: column;
-    padding: 0 var(--space-1);
+    padding: 0 var(--space-lg);
     border-radius: var(--radius);
     background-color: white;
 }
@@ -299,7 +299,7 @@ li:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: var(--space-1) 0;
+    padding: var(--space-lg) 0;
 }
 
 .announcement:last-child {
@@ -309,14 +309,14 @@ li:hover {
 .trending {
     display: grid;
     grid-template-rows: 40px 1fr;
-    gap: var(--space-1);
-    padding: 0 var(--space-1) var(--space-1);
+    gap: var(--space-sm);
+    padding: 0 var(--space-lg) var(--space-lg);
 }
 
 .trending-container {
     display: flex;
     flex-direction: column;
-    padding: var(--space-1) var(--space-1) 0 var(--space-1);
+    padding: var(--space-lg) var(--space-lg) 0 var(--space-lg);
     border-radius: var(--radius);
     background-color: white;
 }
@@ -325,8 +325,8 @@ li:hover {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr 1fr;
-    column-gap: var(--space-1);
-    padding-bottom: var(--space-1);
+    column-gap: var(--space-lg);
+    padding-bottom: var(--space-lg);
 }
 
 .user img {
