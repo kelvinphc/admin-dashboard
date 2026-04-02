@@ -55,12 +55,12 @@ h1, h2, h3, h4 {
     gap: var(--space-sm);
 }
 
-label, .top-right-corner svg, .top-right-corner p, .announcements h3, .announcement, .trending h3, .user {
+label, .top-right-corner svg, .top-right-corner p, .announcements h3, .announcement, .trending h3, .user, .card-icons svg {
     transition: color 0.2s, fill 0.2s;
 }
 
 label:hover, .top-right-corner svg:hover, .top-right-corner img:hover, .top-right-corner p:hover, 
-.announcements h3:hover, .announcement:hover, .trending h3:hover, .user:hover {
+.announcements h3:hover, .announcement:hover, .trending h3:hover, .user:hover, .card-icons svg:hover {
     cursor: pointer;
     color: #23415a;
     fill: #23415a;
@@ -157,7 +157,7 @@ input {
 }
 
 input:focus {
-    outline: 4px solid #315b7d;
+    outline: 3px solid #315b7d;
 }
 
 .top-right-corner {
@@ -271,12 +271,23 @@ li svg {
     grid-template-rows: auto 1fr auto;
     background-color: white;
     border-left: 8px solid goldenrod;
+    transition: color 0.2s, transform 0.2s ease;
+}
+
+.card:hover {
+    cursor: pointer;
+    color: #23415a;
+    transform: translateY(-4px);
 }
 
 .card-icons {
     display: flex;
     justify-content: end;
     gap: var(--space-lg);
+}
+
+.card-icons svg {
+    fill: #999999;
 }
 
 .announcements {
